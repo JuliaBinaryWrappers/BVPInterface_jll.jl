@@ -3,31 +3,25 @@ export libbvp_m_proxy, libbvpsol, libbvpsol_i32, libcoldae, libcoldae_i32, libco
 
 using CompilerSupportLibraries_jll
 JLLWrappers.@generate_wrapper_header("BVPInterface")
-JLLWrappers.@declare_library_product(libbvp_m_proxy, "libbvp_m_proxy.dll")
 JLLWrappers.@declare_library_product(libbvpsol, "libbvpsol.dll")
 JLLWrappers.@declare_library_product(libbvpsol_i32, "libbvpsol_i32.dll")
-JLLWrappers.@declare_library_product(libcoldae, "libcoldae.dll")
-JLLWrappers.@declare_library_product(libcoldae_i32, "libcoldae_i32.dll")
-JLLWrappers.@declare_library_product(libcolmod, "libcolmod.dll")
-JLLWrappers.@declare_library_product(libcolmod_i32, "libcolmod_i32.dll")
 JLLWrappers.@declare_library_product(libcolnew, "libcolnew.dll")
 JLLWrappers.@declare_library_product(libcolnew_i32, "libcolnew_i32.dll")
+JLLWrappers.@declare_library_product(libcoldae, "libcoldae.dll")
+JLLWrappers.@declare_library_product(libcoldae_i32, "libcoldae_i32.dll")
 JLLWrappers.@declare_library_product(libcolsys, "libcolsys.dll")
 JLLWrappers.@declare_library_product(libcolsys_i32, "libcolsys_i32.dll")
+JLLWrappers.@declare_library_product(libcolmod, "libcolmod.dll")
+JLLWrappers.@declare_library_product(libcolmod_i32, "libcolmod_i32.dll")
+JLLWrappers.@declare_library_product(libtwpbvp, "libtwpbvp.dll")
+JLLWrappers.@declare_library_product(libtwpbvp_i32, "libtwpbvp_i32.dll")
 JLLWrappers.@declare_library_product(libmusl, "libmusl.dll")
 JLLWrappers.@declare_library_product(libmusl_i32, "libmusl_i32.dll")
 JLLWrappers.@declare_library_product(libmusn, "libmusn.dll")
 JLLWrappers.@declare_library_product(libmusn_i32, "libmusn_i32.dll")
-JLLWrappers.@declare_library_product(libtwpbvp, "libtwpbvp.dll")
-JLLWrappers.@declare_library_product(libtwpbvp_i32, "libtwpbvp_i32.dll")
+JLLWrappers.@declare_library_product(libbvp_m_proxy, "libbvp_m_proxy.dll")
 function __init__()
     JLLWrappers.@generate_init_header(CompilerSupportLibraries_jll)
-    JLLWrappers.@init_library_product(
-        libbvp_m_proxy,
-        "bin\\libbvp_m_proxy.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
     JLLWrappers.@init_library_product(
         libbvpsol,
         "bin\\libbvpsol.dll",
@@ -37,30 +31,6 @@ function __init__()
     JLLWrappers.@init_library_product(
         libbvpsol_i32,
         "bin\\libbvpsol_i32.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libcoldae,
-        "bin\\libcoldae.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libcoldae_i32,
-        "bin\\libcoldae_i32.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libcolmod,
-        "bin\\libcolmod.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libcolmod_i32,
-        "bin\\libcolmod_i32.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -77,6 +47,18 @@ function __init__()
     )
 
     JLLWrappers.@init_library_product(
+        libcoldae,
+        "bin\\libcoldae.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libcoldae_i32,
+        "bin\\libcoldae_i32.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
         libcolsys,
         "bin\\libcolsys.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
@@ -85,6 +67,30 @@ function __init__()
     JLLWrappers.@init_library_product(
         libcolsys_i32,
         "bin\\libcolsys_i32.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libcolmod,
+        "bin\\libcolmod.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libcolmod_i32,
+        "bin\\libcolmod_i32.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libtwpbvp,
+        "bin\\libtwpbvp.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libtwpbvp_i32,
+        "bin\\libtwpbvp_i32.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -113,14 +119,8 @@ function __init__()
     )
 
     JLLWrappers.@init_library_product(
-        libtwpbvp,
-        "bin\\libtwpbvp.dll",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libtwpbvp_i32,
-        "bin\\libtwpbvp_i32.dll",
+        libbvp_m_proxy,
+        "bin\\libbvp_m_proxy.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
